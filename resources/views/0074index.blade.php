@@ -40,7 +40,7 @@
 						  </button>
 						  <a class="navbar-brand" href="#">
 							<div class="logo">
-								<img src="images/logo.png" alt="" />
+								<img src="images/logo_Universitas-17Agustus1945-Surabaya-thumb.png" height="56" width="94" alt="Image resize"/>
 							</div>
 						  </a>
 						</div>
@@ -118,18 +118,34 @@
 				</div>
 			</div>
 		</div>
+
+		<div>
+		
+		<table id="example" class="table table-striped table-bordered" style="width:100%; margin-top:20%">
+        <thead>
+            <tr>
+				<th>No</th>
+                <th>Nis</th>
+                <th>Nama</th>
+                <th>absen</th>
+                <th>tanggal</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($data as $item)
+			<tr>
+			<td>{{ $loop->iteration }} </td>
+            <td>{{ $item->nis }}</td>
+            <td>{{ $item->nama }}</td>
+            <td>{{ $item->absen }}</td>
+			<td>{{ \Carbon\Carbon::parse($item->tanggal)->format("d-m-Y") }}</td>
+            </tr>
+			@endforeach
+        </tbody>	
+		</div>
 	</section>
-	
-	<script type="text/javascript" src="{{ URL::asset('https://code.jquery.com/jquery-3.5.1.js') }}"></script><script type="text/javascript" src="{{ URL::asset('js/isotop/isotope.min.js') }}"></script>
-	<script type="text/javascript" src="{{ URL::asset('https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js') }}"></script><script type="text/javascript" src="{{ URL::asset('js/isotop/isotope.min.js') }}"></script>
-	<script type="text/javascript" src="{{ URL::asset('https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap.min.js') }}"></script><script type="text/javascript" src="{{ URL::asset('js/isotop/isotope.min.js') }}"></script>
-	<link rel="stylesheet" href="{{ URL::asset('css/fonts/fonts.css') }}" />
-    <link rel="stylesheet" href="{{ URL::asset('css/fonts/fonts.css') }}" />
-
-    $(document).ready(function() {
-        $('#example').DataTable();
-        } );
-
+       
+    </table>
 		<footer id="footer" class="footer">
 			<div class="container">
 				<div class="row">
